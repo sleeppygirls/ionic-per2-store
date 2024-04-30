@@ -9,6 +9,11 @@
           <ion-label style="font-weight: 900; font-family: rockwell;">Beranda</ion-label>
         </ion-tab-button>
 
+        <ion-tab-button tab="transaction" href="/tabs/transaction">
+          <ion-icon style="color: #fff45b;" aria-hidden="true" :icon="cartOutline" />
+          <ion-label style="font-weight: 900; font-family: rockwell;">Transaksi</ion-label>
+        </ion-tab-button>
+
         <ion-tab-button tab="tab2" href="/tabs/tab2">
           <ion-icon style="color: #2a6921;" aria-hidden="true" :icon="bagOutline" />
           <ion-label style="font-weight: 900; font-family: rockwell;">Barang</ion-label>
@@ -24,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { homeOutline, bagOutline, personCircleOutline } from 'ionicons/icons';
+import { homeOutline, bagOutline, personCircleOutline, cartOutline } from 'ionicons/icons';
 </script>
 
 <style>
