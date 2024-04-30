@@ -69,7 +69,7 @@
         </ion-content>
 
         <ion-footer>
-            <ion-button color="danger" expand="block" fill="solid" shape="round">Simpan</ion-button>
+            <ion-button :disabled="!(cart.stuffs.length > 0 && cart.name != '')" @click="saveTransaction" color="danger" expand="block" fill="solid" shape="round">Simpan</ion-button>
         </ion-footer>
     </ion-page>
 </template>
@@ -115,13 +115,15 @@ const removeItem = (index: number) => {
 }
 
 const saveTransaction = async () => {
-    axios.post('transaction/save', {
+    const data = {
         id_user: user.value.id,
         id_customer: null,
-        pembeli: user.value.name,
-        desc: user.value.desc,
-        detail_transaction: user.value.stuffs,
-    }).then(async (result: any) => {
+        pembeli: cart.value.name,
+        desc: cart.value.desc,
+        detail_transaction: cart.value.stuffs,
+    }
+    console.log(data)
+    axios.post('transaction/save', data).then(async (result: any) => {
         const data = result.data
 
         if (data.isError) {
